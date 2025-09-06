@@ -6,7 +6,7 @@ import Image from 'next/image';
 
 export default function Home() {
   return (
-    <div className="min-h-screen bg-gradient-to-br from-[#2D4A2B] via-[#3D5A3D] to-[#2D4A2B]">
+    <div className="min-h-screen animated-gradient">
       {/* Header */}
       <motion.header 
         initial={{ y: -50, opacity: 0 }}
@@ -41,28 +41,68 @@ export default function Home() {
             {/* Left Content */}
             <motion.div 
               className="space-y-8"
-              initial={{ x: -100, opacity: 0 }}
+              initial={{ x: -200, opacity: 0 }}
               animate={{ x: 0, opacity: 1 }}
-              transition={{ duration: 0.8, delay: 0.2, ease: "easeOut" }}
+              transition={{ 
+                duration: 1.2, 
+                delay: 0.3, 
+                ease: [0.25, 0.46, 0.45, 0.94],
+                type: "spring",
+                stiffness: 100,
+                damping: 15
+              }}
             >
               <motion.h1 
                 className="text-4xl lg:text-6xl xl:text-7xl font-light text-white leading-[0.9]"
-                initial={{ y: 50, opacity: 0 }}
-                animate={{ y: 0, opacity: 1 }}
-                transition={{ duration: 0.8, delay: 0.4, ease: "easeOut" }}
+                initial={{ x: -300, opacity: 0, scale: 0.8 }}
+                animate={{ x: 0, opacity: 1, scale: 1 }}
+                transition={{ 
+                  duration: 1.5, 
+                  delay: 0.5, 
+                  ease: [0.25, 0.46, 0.45, 0.94],
+                  type: "spring",
+                  stiffness: 80,
+                  damping: 20
+                }}
               >
-                Experience
+                <motion.span
+                  initial={{ x: -100, opacity: 0 }}
+                  animate={{ x: 0, opacity: 1 }}
+                  transition={{ duration: 0.8, delay: 0.7 }}
+                >
+                  Experience
+                </motion.span>
                 <br />
-                <span className="font-normal">Aceh's living</span>
+                <motion.span 
+                  className="font-normal"
+                  initial={{ x: -150, opacity: 0 }}
+                  animate={{ x: 0, opacity: 1 }}
+                  transition={{ duration: 0.8, delay: 0.9 }}
+                >
+                  Aceh's living
+                </motion.span>
                 <br />
-                heritage
+                <motion.span
+                  initial={{ x: -120, opacity: 0 }}
+                  animate={{ x: 0, opacity: 1 }}
+                  transition={{ duration: 0.8, delay: 1.1 }}
+                >
+                  heritage
+                </motion.span>
               </motion.h1>
 
               <motion.p 
                 className="text-gray-200 text-lg lg:text-xl leading-relaxed max-w-md"
-                initial={{ y: 30, opacity: 0 }}
-                animate={{ y: 0, opacity: 1 }}
-                transition={{ duration: 0.8, delay: 0.6, ease: "easeOut" }}
+                initial={{ x: -200, opacity: 0, y: 20 }}
+                animate={{ x: 0, opacity: 1, y: 0 }}
+                transition={{ 
+                  duration: 1, 
+                  delay: 1.3, 
+                  ease: [0.25, 0.46, 0.45, 0.94],
+                  type: "spring",
+                  stiffness: 120,
+                  damping: 18
+                }}
               >
                 Explore the rich tapestry of Acehnese culture, where
                 every animation and design element tells a story.
@@ -72,18 +112,29 @@ export default function Home() {
 
               <motion.div 
                 className="flex flex-col sm:flex-row gap-4 pt-4"
-                initial={{ y: 30, opacity: 0 }}
-                animate={{ y: 0, opacity: 1 }}
-                transition={{ duration: 0.8, delay: 0.8, ease: "easeOut" }}
+                initial={{ x: -150, opacity: 0, y: 30 }}
+                animate={{ x: 0, opacity: 1, y: 0 }}
+                transition={{ 
+                  duration: 1, 
+                  delay: 1.5, 
+                  ease: [0.25, 0.46, 0.45, 0.94],
+                  type: "spring",
+                  stiffness: 100,
+                  damping: 20
+                }}
               >
                 <motion.button 
                   className="px-8 py-3 bg-green-400 hover:bg-green-300 text-black font-medium rounded-full transition-all duration-300 shadow-lg hover:shadow-xl"
                   whileHover={{ 
                     scale: 1.05,
-                    boxShadow: "0 20px 25px -5px rgba(16, 185, 129, 0.3), 0 10px 10px -5px rgba(16, 185, 129, 0.04)"
+                    boxShadow: "0 20px 25px -5px rgba(16, 185, 129, 0.3), 0 10px 10px -5px rgba(16, 185, 129, 0.04)",
+                    x: 5
                   }}
                   whileTap={{ scale: 0.98 }}
                   transition={{ type: "spring", stiffness: 400, damping: 17 }}
+                  initial={{ x: -50, opacity: 0 }}
+                  animate={{ x: 0, opacity: 1 }}
+                  style={{ transitionDelay: '1.7s' }}
                 >
                   Explore
                 </motion.button>
@@ -92,10 +143,14 @@ export default function Home() {
                   className="px-8 py-3 border-2 border-white/20 hover:border-white/40 text-white font-medium rounded-full transition-all duration-300 hover:bg-white/5"
                   whileHover={{ 
                     scale: 1.05,
-                    borderColor: "rgba(255, 255, 255, 0.6)"
+                    borderColor: "rgba(255, 255, 255, 0.6)",
+                    x: 5
                   }}
                   whileTap={{ scale: 0.98 }}
                   transition={{ type: "spring", stiffness: 400, damping: 17 }}
+                  initial={{ x: -50, opacity: 0 }}
+                  animate={{ x: 0, opacity: 1 }}
+                  style={{ transitionDelay: '1.9s' }}
                 >
                   Experience
                 </motion.button>
@@ -175,7 +230,7 @@ export default function Home() {
       {/* Rolling Cards Section */}
       <div className="px-6 lg:px-12 py-20 lg:py-32">
         <div className="max-w-7xl mx-auto">
-          <div className="grid lg:grid-cols-2 gap-8 lg:gap-12 items-center">
+          <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
             {/* Left - Futuristic Ferris Wheel */}
             <motion.div 
               className="relative order-2 lg:order-1"
@@ -314,88 +369,215 @@ export default function Home() {
               </motion.div>
             </motion.div>
 
-            {/* Right - Stacked Cards */}
-            <div className="space-y-6 order-1 lg:order-2">
-              {/* Artistry & Craft Card */}
+            {/* Right - 4 Flip Cards Grid */}
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 order-1 lg:order-2">
+              {/* Card 1: Artistry & Craft */}
               <motion.div
-                className="bg-white/95 backdrop-blur-sm rounded-3xl p-8 lg:p-10 shadow-xl border border-white/20"
-                initial={{ y: 100, opacity: 0, rotateX: 15 }}
-                whileInView={{ y: 0, opacity: 1, rotateX: 0 }}
+                className="relative h-80 w-full perspective-1000"
+                initial={{ y: 100, opacity: 0 }}
+                whileInView={{ y: 0, opacity: 1 }}
                 viewport={{ once: true, amount: 0.3 }}
-                transition={{ duration: 0.8, delay: 0.1, ease: "easeOut" }}
-                whileHover={{ 
-                  y: -10,
-                  rotateX: -5,
-                  boxShadow: "0 25px 50px -12px rgba(0, 0, 0, 0.25)"
-                }}
+                transition={{ duration: 0.8, delay: 0.1 }}
               >
-                <motion.div 
-                  className="text-sm font-medium text-gray-500 tracking-wider uppercase mb-4"
-                  initial={{ opacity: 0 }}
-                  whileInView={{ opacity: 1 }}
-                  transition={{ delay: 0.3 }}
+                <motion.div
+                  className="relative w-full h-full transform-style-preserve-3d cursor-pointer"
+                  whileHover={{ rotateY: 180 }}
+                  transition={{ duration: 0.8, ease: "easeInOut" }}
                 >
-                  ARTISTRY & CRAFT
+                  {/* Front of Card */}
+                  <div className="absolute inset-0 w-full h-full backface-hidden bg-white/95 backdrop-blur-sm rounded-3xl p-6 shadow-xl border border-white/20">
+                    <div className="text-xs font-medium text-gray-500 tracking-wider uppercase mb-3">
+                      ARTISTRY & CRAFT
+                    </div>
+                    <h3 className="text-xl font-light text-gray-900 mb-3 leading-tight">
+                      Handmade stories in every detail
+                    </h3>
+                    <p className="text-gray-600 text-sm leading-relaxed mb-4">
+                      Wander through vibrant patterns and woven wonders.
+                    </p>
+                    <div className="absolute bottom-4 right-4 text-gray-400 text-xs">
+                      Hover to explore →
+                    </div>
+                  </div>
+
+                  {/* Back of Card */}
+                  <div className="absolute inset-0 w-full h-full backface-hidden rotate-y-180 bg-gradient-to-br from-amber-50 to-orange-100 rounded-3xl p-6 shadow-xl border border-amber/20">
+                    <div className="h-full flex flex-col">
+                      <div className="text-xs font-medium text-amber-700 tracking-wider uppercase mb-2">
+                        TRADITIONAL CRAFTS
+                      </div>
+                      <div className="flex-1 bg-gradient-to-br from-amber-200 to-orange-300 rounded-2xl mb-3 relative overflow-hidden">
+                        <div className="absolute inset-0 bg-gradient-to-br from-amber-400/20 via-orange-300/30 to-red-400/20"></div>
+                        <div className="absolute inset-4 border-2 border-amber-600/30 rounded-xl"></div>
+                        <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 text-amber-800 font-medium text-sm">
+                          Songket Weaving
+                        </div>
+                      </div>
+                      <p className="text-amber-800 text-xs leading-relaxed">
+                        Golden threads tell ancient stories in every intricate pattern of Acehnese songket.
+                      </p>
+                    </div>
+                  </div>
                 </motion.div>
-                
-                <motion.h3 
-                  className="text-2xl lg:text-3xl font-light text-gray-900 mb-4 leading-tight"
-                  initial={{ y: 20, opacity: 0 }}
-                  whileInView={{ y: 0, opacity: 1 }}
-                  transition={{ delay: 0.4 }}
-                >
-                  Handmade stories in every detail
-                </motion.h3>
-                
-                <motion.p 
-                  className="text-gray-600 leading-relaxed"
-                  initial={{ y: 20, opacity: 0 }}
-                  whileInView={{ y: 0, opacity: 1 }}
-                  transition={{ delay: 0.5 }}
-                >
-                  Wander through vibrant patterns and woven wonders. Each piece is a living memory, crafted with generations of skill and passion passed down through Acehnese families.
-                </motion.p>
               </motion.div>
 
-              {/* Flavors & Food Card */}
+              {/* Card 2: Flavors & Food */}
               <motion.div
-                className="bg-white/95 backdrop-blur-sm rounded-3xl p-8 lg:p-10 shadow-xl border border-white/20"
-                initial={{ y: 100, opacity: 0, rotateX: 15 }}
-                whileInView={{ y: 0, opacity: 1, rotateX: 0 }}
+                className="relative h-80 w-full perspective-1000"
+                initial={{ y: 100, opacity: 0 }}
+                whileInView={{ y: 0, opacity: 1 }}
                 viewport={{ once: true, amount: 0.3 }}
-                transition={{ duration: 0.8, delay: 0.3, ease: "easeOut" }}
-                whileHover={{ 
-                  y: -10,
-                  rotateX: -5,
-                  boxShadow: "0 25px 50px -12px rgba(0, 0, 0, 0.25)"
-                }}
+                transition={{ duration: 0.8, delay: 0.2 }}
               >
-                <motion.div 
-                  className="text-sm font-medium text-gray-500 tracking-wider uppercase mb-4"
-                  initial={{ opacity: 0 }}
-                  whileInView={{ opacity: 1 }}
-                  transition={{ delay: 0.5 }}
+                <motion.div
+                  className="relative w-full h-full transform-style-preserve-3d cursor-pointer"
+                  whileHover={{ rotateY: 180 }}
+                  transition={{ duration: 0.8, ease: "easeInOut" }}
                 >
-                  FLAVORS & FOOD
+                  {/* Front of Card */}
+                  <div className="absolute inset-0 w-full h-full backface-hidden bg-white/95 backdrop-blur-sm rounded-3xl p-6 shadow-xl border border-white/20">
+                    <div className="text-xs font-medium text-gray-500 tracking-wider uppercase mb-3">
+                      FLAVORS & FOOD
+                    </div>
+                    <h3 className="text-xl font-light text-gray-900 mb-3 leading-tight">
+                      Savor every taste, share every story
+                    </h3>
+                    <p className="text-gray-600 text-sm leading-relaxed mb-4">
+                      Spicy, sweet, and everything in between.
+                    </p>
+                    <div className="absolute bottom-4 right-4 text-gray-400 text-xs">
+                      Hover to explore →
+                    </div>
+                  </div>
+
+                  {/* Back of Card */}
+                  <div className="absolute inset-0 w-full h-full backface-hidden rotate-y-180 bg-gradient-to-br from-red-50 to-orange-100 rounded-3xl p-6 shadow-xl border border-red/20">
+                    <div className="h-full flex flex-col">
+                      <div className="text-xs font-medium text-red-700 tracking-wider uppercase mb-2">
+                        SIGNATURE DISH
+                      </div>
+                      <div className="flex-1 bg-gradient-to-br from-red-200 to-orange-300 rounded-2xl mb-3 relative overflow-hidden">
+                        <div className="absolute inset-0 bg-gradient-to-br from-red-400/20 via-orange-300/30 to-yellow-400/20"></div>
+                        <div className="absolute inset-4 border-2 border-red-600/30 rounded-xl"></div>
+                        <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 text-red-800 font-medium text-sm text-center">
+                          Rendang Aceh
+                        </div>
+                        <div className="absolute bottom-2 left-1/2 transform -translate-x-1/2 text-red-700 text-xs">
+                          🌶️ Spicy • 🥥 Coconut • 🥩 Beef
+                        </div>
+                      </div>
+                      <p className="text-red-800 text-xs leading-relaxed">
+                        Slow-cooked perfection with aromatic spices and rich coconut milk.
+                      </p>
+                    </div>
+                  </div>
                 </motion.div>
-                
-                <motion.h3 
-                  className="text-2xl lg:text-3xl font-light text-gray-900 mb-4 leading-tight"
-                  initial={{ y: 20, opacity: 0 }}
-                  whileInView={{ y: 0, opacity: 1 }}
-                  transition={{ delay: 0.6 }}
+              </motion.div>
+
+              {/* Card 3: Music & Dance */}
+              <motion.div
+                className="relative h-80 w-full perspective-1000"
+                initial={{ y: 100, opacity: 0 }}
+                whileInView={{ y: 0, opacity: 1 }}
+                viewport={{ once: true, amount: 0.3 }}
+                transition={{ duration: 0.8, delay: 0.3 }}
+              >
+                <motion.div
+                  className="relative w-full h-full transform-style-preserve-3d cursor-pointer"
+                  whileHover={{ rotateY: 180 }}
+                  transition={{ duration: 0.8, ease: "easeInOut" }}
                 >
-                  Savor every taste, share every story
-                </motion.h3>
-                
-                <motion.p 
-                  className="text-gray-600 leading-relaxed"
-                  initial={{ y: 20, opacity: 0 }}
-                  whileInView={{ y: 0, opacity: 1 }}
-                  transition={{ delay: 0.7 }}
+                  {/* Front of Card */}
+                  <div className="absolute inset-0 w-full h-full backface-hidden bg-white/95 backdrop-blur-sm rounded-3xl p-6 shadow-xl border border-white/20">
+                    <div className="text-xs font-medium text-gray-500 tracking-wider uppercase mb-3">
+                      MUSIC & DANCE
+                    </div>
+                    <h3 className="text-xl font-light text-gray-900 mb-3 leading-tight">
+                      Rhythms that move the soul
+                    </h3>
+                    <p className="text-gray-600 text-sm leading-relaxed mb-4">
+                      Traditional melodies and graceful movements.
+                    </p>
+                    <div className="absolute bottom-4 right-4 text-gray-400 text-xs">
+                      Hover to explore →
+                    </div>
+                  </div>
+
+                  {/* Back of Card */}
+                  <div className="absolute inset-0 w-full h-full backface-hidden rotate-y-180 bg-gradient-to-br from-purple-50 to-pink-100 rounded-3xl p-6 shadow-xl border border-purple/20">
+                    <div className="h-full flex flex-col">
+                      <div className="text-xs font-medium text-purple-700 tracking-wider uppercase mb-2">
+                        TRADITIONAL PERFORMANCE
+                      </div>
+                      <div className="flex-1 bg-gradient-to-br from-purple-200 to-pink-300 rounded-2xl mb-3 relative overflow-hidden">
+                        <div className="absolute inset-0 bg-gradient-to-br from-purple-400/20 via-pink-300/30 to-rose-400/20"></div>
+                        <div className="absolute inset-4 border-2 border-purple-600/30 rounded-xl"></div>
+                        <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 text-purple-800 font-medium text-sm text-center">
+                          Saman Dance
+                        </div>
+                        <div className="absolute bottom-2 left-1/2 transform -translate-x-1/2 text-purple-700 text-xs">
+                          🎵 UNESCO Heritage
+                        </div>
+                      </div>
+                      <p className="text-purple-800 text-xs leading-relaxed">
+                        The thousand hands dance - a mesmerizing display of unity and rhythm.
+                      </p>
+                    </div>
+                  </div>
+                </motion.div>
+              </motion.div>
+
+              {/* Card 4: Architecture & Heritage */}
+              <motion.div
+                className="relative h-80 w-full perspective-1000"
+                initial={{ y: 100, opacity: 0 }}
+                whileInView={{ y: 0, opacity: 1 }}
+                viewport={{ once: true, amount: 0.3 }}
+                transition={{ duration: 0.8, delay: 0.4 }}
+              >
+                <motion.div
+                  className="relative w-full h-full transform-style-preserve-3d cursor-pointer"
+                  whileHover={{ rotateY: 180 }}
+                  transition={{ duration: 0.8, ease: "easeInOut" }}
                 >
-                  Spicy, sweet, and everything in between - each dish is a journey. Dive into recipes, kitchen tales, and the joy of gathering around the table.
-                </motion.p>
+                  {/* Front of Card */}
+                  <div className="absolute inset-0 w-full h-full backface-hidden bg-white/95 backdrop-blur-sm rounded-3xl p-6 shadow-xl border border-white/20">
+                    <div className="text-xs font-medium text-gray-500 tracking-wider uppercase mb-3">
+                      ARCHITECTURE & HERITAGE
+                    </div>
+                    <h3 className="text-xl font-light text-gray-900 mb-3 leading-tight">
+                      Monuments of timeless beauty
+                    </h3>
+                    <p className="text-gray-600 text-sm leading-relaxed mb-4">
+                      Islamic architecture meets local wisdom.
+                    </p>
+                    <div className="absolute bottom-4 right-4 text-gray-400 text-xs">
+                      Hover to explore →
+                    </div>
+                  </div>
+
+                  {/* Back of Card */}
+                  <div className="absolute inset-0 w-full h-full backface-hidden rotate-y-180 bg-gradient-to-br from-blue-50 to-indigo-100 rounded-3xl p-6 shadow-xl border border-blue/20">
+                    <div className="h-full flex flex-col">
+                      <div className="text-xs font-medium text-blue-700 tracking-wider uppercase mb-2">
+                        HISTORIC LANDMARK
+                      </div>
+                      <div className="flex-1 bg-gradient-to-br from-blue-200 to-indigo-300 rounded-2xl mb-3 relative overflow-hidden">
+                        <div className="absolute inset-0 bg-gradient-to-br from-blue-400/20 via-indigo-300/30 to-purple-400/20"></div>
+                        <div className="absolute inset-4 border-2 border-blue-600/30 rounded-xl"></div>
+                        <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 text-blue-800 font-medium text-sm text-center">
+                          Baiturrahman Mosque
+                        </div>
+                        <div className="absolute bottom-2 left-1/2 transform -translate-x-1/2 text-blue-700 text-xs">
+                          🕌 Grand Mosque
+                        </div>
+                      </div>
+                      <p className="text-blue-800 text-xs leading-relaxed">
+                        Seven domes crown this magnificent symbol of Acehnese Islamic heritage.
+                      </p>
+                    </div>
+                  </div>
+                </motion.div>
               </motion.div>
             </div>
           </div>
